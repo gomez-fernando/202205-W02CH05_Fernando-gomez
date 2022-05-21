@@ -1,38 +1,48 @@
 import { verifyNeighbours } from "./functions.js";
 import { randomArray } from "./functions.js";
-import { newGen } from "./functions.js";
+import { dropCanvas } from "./functions.js";
+// import { drawPlanet } from "./functions.js";
 
 let canvas = document.querySelector('#canvas');
-let ctx = canvas.getContext('2d');
-let fps = 50;
-let canvasWidth = 530;
-let canvasHeight = 500;
-let tileWidth;
-let tileHeight;
-let planet;
-let rows = 100;
-let columns = 100;
-let background = '#000000';
-let cellColor = 'green';
+// let fps = 50;
+let canvasWidth = 800;
+let canvasHeight = 800;
+// let tileWidth;
+// let tileHeight;
+// let planet;
+// let rows = 100;
+// let columns = 100;
+// let tileWidth = canvasWidth / columns;
+// let tileHeight = canvasHeight / rows;
 
-let array = [];
+
+
 
 const game = () => {
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
 
-    tileWidth = canvasWidth / columns;
-    tileHeight = canvasHeight / rows;
+    
+
+    
 
     // let goOn = true;
-    array = randomArray();
+    let array = randomArray();
+
+    dropCanvas();
+    // drawPlanet(array);
 
     setInterval(() => {
         array =  verifyNeighbours(array);
         console.log(array);
-    }, 2000 / fps);
+    }, 500 );
 
 }
+
+// const main = () => {
+//     dropCanvas();
+//     drawPlanet();
+// }
 
 
 // IIFE

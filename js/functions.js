@@ -1,5 +1,21 @@
+
+let ctx = canvas.getContext('2d');
+let rows = 100;
+let columns = 100;
+let background = '#000000';
+let cellColor = 'green';
+
+
+let canvasWidth = 800;
+let canvasHeight = 800;
+// let tileWidth;
+// let tileHeight;
+// let planet;
+let tileWidth = canvasWidth / columns;
+let tileHeight = canvasHeight / rows;
+
 export const randomArray = () => {
-    let array = [...Array(10)].map(x => Array(10).fill(1));
+    let array = [...Array(100)].map(x => Array(100).fill(1));
 
     for (let i = 0; i < array.length; i++){
         for (let j = 0; j < array.length; j++){
@@ -10,6 +26,9 @@ export const randomArray = () => {
 }
 
 export const verifyNeighbours = (array) => {
+    
+
+
     let newArray =  [...array].map((row) => [...row]);
     for (let i = 0; i < array.length; i++) {
         for (let j = 0; j < array[i].length; j++) {
@@ -81,15 +100,45 @@ export const verifyNeighbours = (array) => {
                     newArray[i][j] = 0;
                 }
             }
+
+            // drawPlanet(newArray);
+            const drawCell = (i, j) => {
+                let color = '';
+                if (array[i][j] === 1){
+                    color = cellColor;
+                } else{
+                    color = background;
+                }
+            
+                ctx.fillStyle = color;
+                ctx.fillRect(i * tileWidth, j * tileHeight, tileWidth, tileHeight);
+            }
+            drawCell(i,j);
+             const drawPlanet = (array) => {
+                for (let i = 0; i < rows; i++) {
+                    for (let j = 0; j < columns; j++) {
+                        drawCell(array[i][j]);
+                    }
+                    
+                }
+            }
         }
     }
 
     return newArray;
 };
 
-export const newGen = ( array) => {
-    setInterval(() => {
-        array =  verifyNeighbours(array);
-        console.log(array);
-    }, 3000);
-} 
+// export const newGen = ( array) => {
+//     setInterval(() => {
+//         array =  verifyNeighbours(array);
+//         console.log(array);
+//     }, 3000);
+// } 
+
+export const dropCanvas = () => {
+    canvas.width = canvas.width;
+    canvas.height = canvas.height;
+}
+
+
+
