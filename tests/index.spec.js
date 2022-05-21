@@ -1,4 +1,5 @@
 import { verifyNeighbours } from "../js/index.js";
+import { randomArray } from "../js/index.js";
 
 describe('Given function verifyNeighbours', () => {
     describe('When parameter is an array', () => {
@@ -24,4 +25,20 @@ describe('Given function verifyNeighbours', () => {
             expect(JSON.stringify(result)).toBe(JSON.stringify(expectedResult));
         });
     });
+    
+});
+describe('Given function randomArray', () => {
+    describe('No parameters needed', () => {
+        test('should return a new array', () => {
+            // arrange 
+            
+            // act 
+            const array = randomArray();
+            const result = Array.isArray(randomArray());
+            const expectedResult = true;
+            // assert
+            expect(result).toBe(expectedResult);
+        });
+    });
+  
 });
