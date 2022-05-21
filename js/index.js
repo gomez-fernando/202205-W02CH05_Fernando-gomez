@@ -8,20 +8,28 @@ cellsArray = [
     [1, 1, 1, 1, 0],
 ];
 
+export const randomArray = () => {
+    console.log("*/**/*/*/");
+    let array = [...Array(5)].map(x => Array(5).fill(1));
+    console.log(array);
+
+    for (let i = 0; i < 5; i++){
+        for (let j = 0; j < 5; j++){
+            array[i][j] = (Math.floor(Math.random() *2));
+        }
+    }
+    console.log(array);
+    return array;
+}
+
 export const verifyNeighbours = (array) => {
     let newArray =  [...array].map((row) => [...row]);
-    let array2 =  [...array].map((row) => [...row]);
     for (let i = 0; i < cellsArray.length; i++) {
         console.log("Estoy en array: " + i);
         for (let j = 0; j < cellsArray[i].length; j++) {
             let vecinosVivos = 0;
-            // let cellState = (Math.floor(Math.random() *2));
-            // let cellState = cellsArray[i][j];
             console.log("///////////");
             console.log("cell --> Estado: " + cellsArray[i][j]);
-
-            // const cell = cellsArray[i][j];
-            // console.log(cell);
 
             //  arriba izquierda
             if (i > 0 && j - 1 >= 0) {
@@ -98,7 +106,6 @@ export const verifyNeighbours = (array) => {
             if (cellsArray[i][j] === 1) {
                 console.log("Mi estado es: " + cellsArray[i][j]);
                 if (vecinosVivos < 2 || vecinosVivos > 3) {
-                    // cellsArray[i][j] = 0;
                     console.log("Muere");
                     newArray[i][j] = 0;
                 } else {
@@ -119,9 +126,10 @@ export const verifyNeighbours = (array) => {
         console.log("--------------------");
     }
 
-    console.log(array2);
     console.log(newArray);
     return newArray;
 };
 
 verifyNeighbours(cellsArray);
+
+randomArray()
