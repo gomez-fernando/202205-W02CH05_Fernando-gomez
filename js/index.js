@@ -11,14 +11,17 @@ cellsArray = [
 // console.log(cellsArray);
 
 for (let i = 0; i < cellsArray.length; i++) {
-    const element = cellsArray[i];
+    const row = cellsArray[i];
     console.log("Estoy en array: " + i);
-    // console.log(element);
     for (let j = 0; j < cellsArray[i].length; j++) {
         let vecinosVivos = 0;
+        // let cellState = (Math.floor(Math.random() *2));
+        let cellState = cellsArray[i][j];
+        console.log("///////////");
+        console.log('cell --> Estado: ' + cellState);
         
-        const element2 = cellsArray[i][j];
-        console.log(element2);
+        // const cell = cellsArray[i][j];
+        // console.log(cell);
 
         //  arriba izquierda
         if (i > 0 && j - 1 >= 0) {
@@ -85,6 +88,34 @@ for (let i = 0; i < cellsArray.length; i++) {
                 console.log("vecino debajo derecha vivo");
                 vecinosVivos++;
                 console.log("contador: " + vecinosVivos);
+            }
+        }
+        
+        console.log("Coordenadas: x = " + i + " -> y= " + j);
+        console.log("total de vecinos vivos: " + vecinosVivos);
+        
+        if(cellState === 1){
+            console.log("l 96 Mi estado es: " + cellState);
+            if(vecinosVivos < 2 || vecinosVivos > 3){
+                cellState = 0;
+                console.log("Muere")
+            } else{
+                console.log("Sobrevive");
+            }
+
+            // if(vecinosVivos < 2 || vecinosVivos > 3){
+            //     console.log("muereeee");
+            //     // cellState = 0;
+            //     console.log("Muere")
+            // }
+            // console.log("eewerwerwr");
+        } else{
+            console.log("l 104 Mi estado es: " + cellState);
+            if(vecinosVivos === 3){
+                cellState = 1;
+                console.log("Renace");
+            } else{
+                console.log("No renace");
             }
         }
     }
