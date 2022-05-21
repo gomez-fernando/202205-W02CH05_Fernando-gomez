@@ -1,5 +1,6 @@
 import { verifyNeighbours } from "../js/functions.js";
 import { randomArray } from "../js/functions.js";
+import { newGen } from "../js/functions.js";
 
 describe('Given function verifyNeighbours', () => {
     describe('When parameter is an array', () => {
@@ -29,7 +30,7 @@ describe('Given function verifyNeighbours', () => {
 });
 describe('Given function randomArray', () => {
     describe('No parameters needed', () => {
-        test('should return a new array', () => {
+        test('should return a new random array', () => {
             // arrange 
             
             // act 
@@ -42,3 +43,28 @@ describe('Given function randomArray', () => {
     });
   
 });
+// describe('Given function newGen', () => {
+//     describe('When array received', () => {
+//         test('should return a new array', () => {
+//             // arrange 
+//             const array = [
+//                 [ 1, 0, 1, 0, 0 ],
+//                 [ 1, 0, 0, 0, 1 ],
+//                 [ 0, 0, 0, 0, 0 ],
+//                 [ 1, 0, 0, 0, 0 ],
+//                 [ 0, 1, 0, 0, 0 ]
+//               ];
+//             const expectedResult = [
+//                 [ 0, 1, 0, 0, 0 ],
+//                 [ 0, 1, 0, 0, 0 ],
+//                 [ 0, 0, 0, 0, 0 ],
+//                 [ 0, 0, 0, 0, 0 ],
+//                 [ 0, 0, 0, 0, 0 ]
+//               ];
+//               const result = newGen(array);
+//               // assert
+//               expect(JSON.stringify(result)).toBe(JSON.stringify(expectedResult));
+//         });
+//     });
+  
+// });
