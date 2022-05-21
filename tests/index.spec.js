@@ -1,5 +1,5 @@
-import { verifyNeighbours } from "../js/index.js";
-import { randomArray } from "../js/index.js";
+import { verifyNeighbours } from "../js/functions.js";
+import { randomArray } from "../js/functions.js";
 
 describe('Given function verifyNeighbours', () => {
     describe('When parameter is an array', () => {
