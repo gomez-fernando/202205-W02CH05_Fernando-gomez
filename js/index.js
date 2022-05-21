@@ -90,27 +90,20 @@ for (let i = 0; i < cellsArray.length; i++) {
                 console.log("contador: " + vecinosVivos);
             }
         }
-        
+
         console.log("Coordenadas: x = " + i + " -> y= " + j);
         console.log("total de vecinos vivos: " + vecinosVivos);
         
         if(cellState === 1){
-            console.log("l 96 Mi estado es: " + cellState);
+            console.log("Mi estado es: " + cellState);
             if(vecinosVivos < 2 || vecinosVivos > 3){
                 cellState = 0;
                 console.log("Muere")
             } else{
                 console.log("Sobrevive");
             }
-
-            // if(vecinosVivos < 2 || vecinosVivos > 3){
-            //     console.log("muereeee");
-            //     // cellState = 0;
-            //     console.log("Muere")
-            // }
-            // console.log("eewerwerwr");
         } else{
-            console.log("l 104 Mi estado es: " + cellState);
+            console.log("Mi estado es: " + cellState);
             if(vecinosVivos === 3){
                 cellState = 1;
                 console.log("Renace");
