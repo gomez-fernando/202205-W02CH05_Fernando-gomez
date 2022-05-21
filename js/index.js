@@ -22,6 +22,8 @@ export const randomArray = () => {
     return array;
 }
 
+cellsArray = randomArray();
+
 export const verifyNeighbours = (array) => {
     let newArray =  [...array].map((row) => [...row]);
     for (let i = 0; i < cellsArray.length; i++) {
@@ -126,10 +128,11 @@ export const verifyNeighbours = (array) => {
         console.log("--------------------");
     }
 
+    console.log(array);
     console.log(newArray);
     return newArray;
 };
 
 verifyNeighbours(cellsArray);
 
-randomArray()
+// randomArray();
