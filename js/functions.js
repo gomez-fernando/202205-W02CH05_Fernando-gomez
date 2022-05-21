@@ -1,5 +1,5 @@
 export const randomArray = () => {
-    let array = [...Array(5)].map(x => Array(5).fill(1));
+    let array = [...Array(10)].map(x => Array(10).fill(1));
 
     for (let i = 0; i < array.length; i++){
         for (let j = 0; j < array.length; j++){
