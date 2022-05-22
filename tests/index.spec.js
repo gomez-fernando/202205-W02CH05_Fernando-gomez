@@ -1,5 +1,4 @@
-import { verifyNeighbours } from "../js/functions.js";
-import { randomArray } from "../js/functions.js";
+import { verifyNeighbours, randomArray } from "../js/functions.js";
 
 describe("Given function verifyNeighbours", () => {
     describe("When parameter is an array", () => {
@@ -32,7 +31,6 @@ describe("Given function randomArray", () => {
             // arrange
 
             // act
-            const array = randomArray();
             const result = Array.isArray(randomArray());
             const expectedResult = true;
             // assert
