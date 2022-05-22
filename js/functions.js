@@ -136,8 +136,7 @@ export const changeCellState = (array, newArray, i, j, vecinosVivos) =>{
     }
     return newArray[i][j]
 }
-export const changeCellStateAsteroidMode = (array, newArray, i, j, vecinosVivos) =>{
-    array[i][j] === 1;
+export const changeCellStateAsteroidMode = (array, newArray, i, j) =>{
     return newArray[i][j]
 }
 
@@ -154,7 +153,7 @@ const drawCell = (cell, i, j, ctx) => {
     ctx.fillRect(i * tileWidth, j * tileHeight, tileWidth, tileHeight);
 }
 
-const drawCellAsteroideMode = (cell, i, j, ctx) => {
+const drawCellAsteroideMode = (_cell, i, j, ctx) => {
     ctx.fillStyle = 'black';
     ctx.fillRect(i * tileWidth, j * tileHeight, tileWidth, tileHeight);
 }
