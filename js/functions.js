@@ -97,37 +97,28 @@ export const verifyNeighbours = (array) => {
                 }
             }
 
-            const drawCell = () => {
-                let color = '';
-                if (array[i][j] === 1){
-                    let col = (Math.floor(Math.random() *2));
-                    (col === 1) ? color = cellColor : color = cellColor2;
-                    // color = cellColor;
-                } else{
-                    color = background;
-                }
             
-                ctx.fillStyle = color;
-                ctx.fillRect(i * tileWidth, j * tileHeight, tileWidth, tileHeight);
-            }
-            drawCell();
-            (array) => {
-                for ( i = 0; i < rows; i++) {
-                    for ( j = 0; j < columns; j++) {
-                        drawCell(array[i][j]);
-                    }
-                    
-                }
-            }
+            drawCell(array[i][j], i, j);
         }
     }
 
     return newArray;
 };
 
+const drawCell = (cell, i, j) => {
+    let color = '';
+    if (cell === 1){
+        let col = (Math.floor(Math.random() *2));
+        (col === 1) ? color = cellColor : color = cellColor2;
+    } else{
+        color = background;
+    }
+
+    ctx.fillStyle = color;
+    ctx.fillRect(i * tileWidth, j * tileHeight, tileWidth, tileHeight);
+}
+
 export const dropCanvas = () => {
-    // canvas.width = canvas.width;
-    // canvas.height = canvas.height;
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 }
 
