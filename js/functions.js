@@ -87,7 +87,7 @@ export const verify = (array, i, j, vecinosVivos) => {
     return vecinosVivos;
 }
 
-const changeCellState = (array, newArray, i, j, vecinosVivos) =>{
+export const changeCellState = (array, newArray, i, j, vecinosVivos) =>{
     if (array[i][j] === 1) {
         if (vecinosVivos < 2 || vecinosVivos > 3) {
             newArray[i][j] = 0;
@@ -101,6 +101,7 @@ const changeCellState = (array, newArray, i, j, vecinosVivos) =>{
             newArray[i][j] = 0;
         }
     }
+    return newArray[i][j]
 }
 
 const drawCell = (cell, i, j, ctx) => {
