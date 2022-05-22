@@ -35,7 +35,7 @@ const game = () => {
     });
 };
 
-const asteroid = (emoji) => {
+const asteroid = () => {
     asteroidButton.style.display = "none";
     
     canvas.width = canvasWidth;
