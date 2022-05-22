@@ -6,7 +6,12 @@
 body{
     display: flex;
     min-height: 100vh;
-    background: rgb(187, 181, 181)
+    /* background: rgb(187, 181, 181); */
+    background-image: url(../assets/backg.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    background-size: cover;
 }
 
 .buttons-area, .stats-area{

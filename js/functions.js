@@ -83,6 +83,7 @@ export const verifyNeighbours = (array) => {
             }
 
             // chage state of cell
+            changeCellState(array, newArray, i, j, vecinosVivos)
             if (array[i][j] === 1) {
                 if (vecinosVivos < 2 || vecinosVivos > 3) {
                     newArray[i][j] = 0;
@@ -96,7 +97,6 @@ export const verifyNeighbours = (array) => {
                     newArray[i][j] = 0;
                 }
             }
-
             
             drawCell(array[i][j], i, j);
         }
@@ -104,6 +104,22 @@ export const verifyNeighbours = (array) => {
 
     return newArray;
 };
+
+const changeCellState = (array, newArray, i, j, vecinosVivos) =>{
+    if (array[i][j] === 1) {
+        if (vecinosVivos < 2 || vecinosVivos > 3) {
+            newArray[i][j] = 0;
+        } else {
+            newArray[i][j] = 1;
+        }
+    } else {
+        if (vecinosVivos === 3) {
+            newArray[i][j] = 1;
+        } else {
+            newArray[i][j] = 0;
+        }
+    }
+}
 
 const drawCell = (cell, i, j) => {
     let color = '';
