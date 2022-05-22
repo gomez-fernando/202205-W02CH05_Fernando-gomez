@@ -6,27 +6,38 @@ let canvas = document.querySelector('#canvas');
 let canvasWidth = 800;
 let canvasHeight = 800;
 
-let reloadButton = document.querySelector('#reload')
+let reloadButton = document.querySelector('#reload');
+let array;
+let normalTime;
 
 const game = () => {
    
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
 
-    let array = randomArray();
+    array = randomArray();
 
     dropCanvas();
 
-    setInterval(() => {
+    normalTime = setInterval(() => {
         array =  verifyNeighbours(array);
         console.log(array);
+
+        reloadButton.addEventListener('click', () => {
+            array = [];
+                
+            game();
+        });
+
+
+        
     }, 10 );
 
    
 
 
     
-    reloadButton.addEventListener('click', function(){location.reload()});
+    
 
     
         

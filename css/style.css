@@ -6,6 +6,7 @@
 body{
     display: flex;
     min-height: 100vh;
+    background: rgb(187, 181, 181)
 }
 
 .buttons-area, .stats-area{
@@ -21,6 +22,7 @@ body{
 .canvas {
     border: 1px solid black;
     margin: auto;
+    z-index: -1;
 }
 button{
     padding: 0.6rem 1.2rem;
@@ -33,3 +35,41 @@ button{
 button:hover{
     padding: 0.8rem 1.6rem;
 }
+
+
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+    from {
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes rotating {
+    from {
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -ms-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  .rotating {
+    -webkit-animation: rotating 60s linear infinite;
+    -moz-animation: rotating 60s linear infinite;
+    -ms-animation: rotating 60s linear infinite;
+    -o-animation: rotating 60s linear infinite;
+    animation: rotating 60s linear infinite;
+  }
