@@ -136,7 +136,7 @@ export const changeCellState = (array, newArray, i, j, vecinosVivos) =>{
     }
     return newArray[i][j]
 }
-export const changeCellStateAsteroidMode = (array, newArray, i, j) =>{
+export const changeCellStateAsteroidMode = (_array, newArray, i, j) =>{
     return newArray[i][j]
 }
 
