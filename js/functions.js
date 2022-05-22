@@ -30,58 +30,8 @@ export const verifyNeighbours = (array) => {
         for (let j = 0; j < array[i].length; j++) {
             let vecinosVivos = 0;
 
-            //  arriba izquierda
-            if (i > 0 && j - 1 >= 0) {
-                if (array[i - 1][j - 1] === 1) {
-                    vecinosVivos++;
-                }
-            }
-
-            //  arriba
-            if (i > 0) {
-                if (array[i - 1][j] === 1) {
-                    vecinosVivos++;
-                }
-            }
-
-            //  arriba derecha
-            if (i > 0 && j + 1 < array.length) {
-                if (array[i - 1][j + 1] === 1) {
-                    vecinosVivos++;
-                }
-            }
-
-            // anterior --------------
-            if (array[i][j - 1] === 1) {
-                vecinosVivos++;
-            }
-
-            // siguiente -----------------
-            if (array[i][j + 1] === 1) {
-                vecinosVivos++;
-            }
-
-            //  debajo izquierda
-            if (i < array.length - 1 && j - 1 >= 0) {
-                if (array[i + 1][j - 1] === 1) {
-                    vecinosVivos++;
-                }
-            }
-
-            //  debajo
-            if (i < array.length - 1) {
-                if (array[i + 1][j] === 1) {
-                    vecinosVivos++;
-                }
-            }
-
-            //  debajo derecha
-            if (i < array.length - 1 && j < array.length) {
-                if (array[i + 1][j + 1] === 1) {
-                    vecinosVivos++;
-                }
-            }
-
+            // nueva funcion aqui
+            vecinosVivos = verify(array, i, j, vecinosVivos);
             // chage state of cell
             changeCellState(array, newArray, i, j, vecinosVivos)
             
@@ -91,6 +41,61 @@ export const verifyNeighbours = (array) => {
 
     return newArray;
 };
+
+const verify = (array, i, j, vecinosVivos) => {
+    //  arriba izquierda
+    if (i > 0 && j - 1 >= 0) {
+        if (array[i - 1][j - 1] === 1) {
+            vecinosVivos++;
+        }
+    }
+
+    //  arriba
+    if (i > 0) {
+        if (array[i - 1][j] === 1) {
+            vecinosVivos++;
+        }
+    }
+
+    //  arriba derecha
+    if (i > 0 && j + 1 < array.length) {
+        if (array[i - 1][j + 1] === 1) {
+            vecinosVivos++;
+        }
+    }
+
+    // anterior --------------
+    if (array[i][j - 1] === 1) {
+        vecinosVivos++;
+    }
+
+    // siguiente -----------------
+    if (array[i][j + 1] === 1) {
+        vecinosVivos++;
+    }
+
+    //  debajo izquierda
+    if (i < array.length - 1 && j - 1 >= 0) {
+        if (array[i + 1][j - 1] === 1) {
+            vecinosVivos++;
+        }
+    }
+
+    //  debajo
+    if (i < array.length - 1) {
+        if (array[i + 1][j] === 1) {
+            vecinosVivos++;
+        }
+    }
+
+    //  debajo derecha
+    if (i < array.length - 1 && j < array.length) {
+        if (array[i + 1][j + 1] === 1) {
+            vecinosVivos++;
+        }
+    }
+    return vecinosVivos;
+}
 
 const changeCellState = (array, newArray, i, j, vecinosVivos) =>{
     if (array[i][j] === 1) {
