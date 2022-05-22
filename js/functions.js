@@ -4,6 +4,7 @@ let rows = 100;
 let columns = 100;
 let background = '#000000';
 let cellColor = 'green';
+let cellColor2 = 'yellow';
 
 
 let canvasWidth = 800;
@@ -99,7 +100,9 @@ export const verifyNeighbours = (array) => {
             const drawCell = (i, j) => {
                 let color = '';
                 if (array[i][j] === 1){
-                    color = cellColor;
+                    let col = (Math.floor(Math.random() *2));
+                    (col === 1) ? color = cellColor : color = cellColor2;
+                    // color = cellColor;
                 } else{
                     color = background;
                 }
