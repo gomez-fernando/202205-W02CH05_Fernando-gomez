@@ -1,4 +1,4 @@
-
+let canvas = document.querySelector('#canvas');
 let ctx = canvas.getContext('2d');
 let rows = 100;
 let columns = 100;
@@ -8,9 +8,6 @@ let cellColor = 'green';
 
 let canvasWidth = 800;
 let canvasHeight = 800;
-// let tileWidth;
-// let tileHeight;
-// let planet;
 let tileWidth = canvasWidth / columns;
 let tileHeight = canvasHeight / rows;
 
@@ -27,8 +24,6 @@ export const randomArray = () => {
 
 export const verifyNeighbours = (array) => {
     
-
-
     let newArray =  [...array].map((row) => [...row]);
     for (let i = 0; i < array.length; i++) {
         for (let j = 0; j < array[i].length; j++) {
@@ -101,7 +96,6 @@ export const verifyNeighbours = (array) => {
                 }
             }
 
-            // drawPlanet(newArray);
             const drawCell = (i, j) => {
                 let color = '';
                 if (array[i][j] === 1){
@@ -114,7 +108,7 @@ export const verifyNeighbours = (array) => {
                 ctx.fillRect(i * tileWidth, j * tileHeight, tileWidth, tileHeight);
             }
             drawCell(i,j);
-             const drawPlanet = (array) => {
+            (array) => {
                 for (let i = 0; i < rows; i++) {
                     for (let j = 0; j < columns; j++) {
                         drawCell(array[i][j]);
@@ -127,13 +121,6 @@ export const verifyNeighbours = (array) => {
 
     return newArray;
 };
-
-// export const newGen = ( array) => {
-//     setInterval(() => {
-//         array =  verifyNeighbours(array);
-//         console.log(array);
-//     }, 3000);
-// } 
 
 export const dropCanvas = () => {
     canvas.width = canvas.width;
