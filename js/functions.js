@@ -84,19 +84,6 @@ export const verifyNeighbours = (array) => {
 
             // chage state of cell
             changeCellState(array, newArray, i, j, vecinosVivos)
-            if (array[i][j] === 1) {
-                if (vecinosVivos < 2 || vecinosVivos > 3) {
-                    newArray[i][j] = 0;
-                } else {
-                    newArray[i][j] = 1;
-                }
-            } else {
-                if (vecinosVivos === 3) {
-                    newArray[i][j] = 1;
-                } else {
-                    newArray[i][j] = 0;
-                }
-            }
             
             drawCell(array[i][j], i, j);
         }
