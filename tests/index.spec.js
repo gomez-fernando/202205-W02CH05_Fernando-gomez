@@ -1,9 +1,10 @@
-import { verifyNeighbours, randomArray } from "../js/functions.js";
+import { verifyNeighbours, randomArray, verify } from "../js/functions.js";
 
-describe("Given function verifyNeighbours", () => {
-    describe("When parameter is an array", () => {
-        test("should return a new array", () => {
+describe("Given function verify", () => {
+    describe("When cell has 3 alive neighbours", () => {
+        test("should return 3", () => {
             // arrange
+            let vecinosVivos = 0;
             const cellsArray = [
                 [0, 1, 0, 0, 1],
                 [1, 1, 0, 0, 0],
@@ -11,17 +12,11 @@ describe("Given function verifyNeighbours", () => {
                 [0, 1, 0, 1, 0],
                 [1, 1, 1, 1, 0],
             ];
-            const expectedResult = [
-                [1, 1, 0, 0, 0],
-                [1, 0, 0, 1, 0],
-                [0, 0, 0, 1, 0],
-                [0, 0, 0, 0, 1],
-                [1, 1, 0, 1, 0],
-            ];
+            const expectedResult = 3;
             // act
-            const result = verifyNeighbours(cellsArray);
+            const result = verify(cellsArray, 1, 0, vecinosVivos);
             // assert
-            expect(JSON.stringify(result)).toBe(JSON.stringify(expectedResult));
+            expect(result).toBe(expectedResult);
         });
     });
 });

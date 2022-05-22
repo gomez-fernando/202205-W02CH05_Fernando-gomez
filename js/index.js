@@ -1,6 +1,7 @@
 import { verifyNeighbours, randomArray, dropCanvas } from "./functions.js";
 
 const canvas = document.querySelector("#canvas");
+let ctx = canvas.getContext('2d');
 const canvasWidth = 800;
 const canvasHeight = 800;
 
@@ -14,11 +15,11 @@ const game = () => {
 
     array = randomArray();
 
-    dropCanvas();
+    dropCanvas(ctx, canvas);
 
     normalTime = setInterval(() => {
-        array = verifyNeighbours(array);
-        console.log(array);
+        array = verifyNeighbours(array, ctx);
+        // console.log(array);
 
         reloadButton.addEventListener("click", () => {
             clearInterval(normalTime);
