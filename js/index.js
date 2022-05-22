@@ -19,7 +19,6 @@ const game = () => {
 
     normalTime = setInterval(() => {
         array = verifyNeighbours(array, ctx);
-        // console.log(array);
 
         reloadButton.addEventListener("click", () => {
             clearInterval(normalTime);
