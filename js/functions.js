@@ -1,7 +1,7 @@
 let canvas = document.querySelector('#canvas');
 let ctx = canvas.getContext('2d');
-let rows = 100;
-let columns = 100;
+let rows = 400;
+let columns = 400;
 let background = '#000000';
 let cellColor = 'green';
 let cellColor2 = 'yellow';
@@ -13,7 +13,7 @@ let tileWidth = canvasWidth / columns;
 let tileHeight = canvasHeight / rows;
 
 export const randomArray = () => {
-    let array = [...Array(100)].map(x => Array(100).fill(1));
+    let array = [...Array(400)].map(x => Array(400).fill(1));
 
     for (let i = 0; i < array.length; i++){
         for (let j = 0; j < array.length; j++){
