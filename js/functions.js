@@ -1,12 +1,10 @@
-let canvas = document.querySelector('#canvas');
-let ctx = canvas.getContext('2d');
+// let canvas = document.querySelector('#canvas');
+// let ctx = canvas.getContext('2d');
 let rows = 400;
 let columns = 400;
 let background = '#000000';
 let cellColor = 'green';
 let cellColor2 = 'yellow';
-
-
 let canvasWidth = 800;
 let canvasHeight = 800;
 let tileWidth = canvasWidth / columns;
@@ -23,7 +21,7 @@ export const randomArray = () => {
     return array;
 }
 
-export const verifyNeighbours = (array) => {
+export const verifyNeighbours = (array, ctx) => {
     
     let newArray =  [...array].map((row) => [...row]);
     for (let i = 0; i < array.length; i++) {
@@ -35,14 +33,14 @@ export const verifyNeighbours = (array) => {
             // chage state of cell
             changeCellState(array, newArray, i, j, vecinosVivos)
             
-            drawCell(array[i][j], i, j);
+            drawCell(array[i][j], i, j, ctx);
         }
     }
 
     return newArray;
 };
 
-const verify = (array, i, j, vecinosVivos) => {
+export const verify = (array, i, j, vecinosVivos) => {
     if (i > 0) {
     //  arriba izquierda
         if (array[i - 1][j - 1] === 1 && j - 1 >= 0) {
@@ -107,7 +105,7 @@ const changeCellState = (array, newArray, i, j, vecinosVivos) =>{
     }
 }
 
-const drawCell = (cell, i, j) => {
+const drawCell = (cell, i, j, ctx) => {
     let color = '';
     if (cell === 1){
         let col = (Math.floor(Math.random() *2));
@@ -120,7 +118,7 @@ const drawCell = (cell, i, j) => {
     ctx.fillRect(i * tileWidth, j * tileHeight, tileWidth, tileHeight);
 }
 
-export const dropCanvas = () => {
+export const dropCanvas = (ctx, canvas) => {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 }
 

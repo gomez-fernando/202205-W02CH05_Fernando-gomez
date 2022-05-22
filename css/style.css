@@ -35,7 +35,7 @@ button{
     border: 1px solid blue;
     border-radius: 10px;
     cursor: pointer;
-    transition: 0.2s all ease;
+    transition: 0.2s all ease-in;
 }
 button:hover{
     padding: 0.8rem 1.6rem;
