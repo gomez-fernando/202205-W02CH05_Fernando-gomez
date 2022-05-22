@@ -13,7 +13,7 @@ let tileWidth = canvasWidth / columns;
 let tileHeight = canvasHeight / rows;
 
 export const randomArray = () => {
-    let array = [...Array(400)].map(x => Array(400).fill(1));
+    let array = [...Array(400)].map(_x => Array(400).fill(1));
 
     for (let i = 0; i < array.length; i++){
         for (let j = 0; j < array.length; j++){
@@ -97,7 +97,7 @@ export const verifyNeighbours = (array) => {
                 }
             }
 
-            const drawCell = (i, j) => {
+            const drawCell = () => {
                 let color = '';
                 if (array[i][j] === 1){
                     let col = (Math.floor(Math.random() *2));
@@ -110,10 +110,10 @@ export const verifyNeighbours = (array) => {
                 ctx.fillStyle = color;
                 ctx.fillRect(i * tileWidth, j * tileHeight, tileWidth, tileHeight);
             }
-            drawCell(i,j);
+            drawCell();
             (array) => {
-                for (let i = 0; i < rows; i++) {
-                    for (let j = 0; j < columns; j++) {
+                for ( i = 0; i < rows; i++) {
+                    for ( j = 0; j < columns; j++) {
                         drawCell(array[i][j]);
                     }
                     
@@ -126,8 +126,9 @@ export const verifyNeighbours = (array) => {
 };
 
 export const dropCanvas = () => {
-    canvas.width = canvas.width;
-    canvas.height = canvas.height;
+    // canvas.width = canvas.width;
+    // canvas.height = canvas.height;
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
 }
 
 
