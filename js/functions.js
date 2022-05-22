@@ -1,5 +1,3 @@
-// let canvas = document.querySelector('#canvas');
-// let ctx = canvas.getContext('2d');
 let rows = 400;
 let columns = 400;
 let background = '#000000';
