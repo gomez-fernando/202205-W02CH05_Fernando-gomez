@@ -1,4 +1,4 @@
-import { verifyNeighbours, randomArray, verify } from "../js/functions.js";
+import { randomArray, verify } from "../js/functions.js";
 
 describe("Given function verify", () => {
     describe("When cell has 3 alive neighbours", () => {
