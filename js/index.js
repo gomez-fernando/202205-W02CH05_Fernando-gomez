@@ -31,7 +31,7 @@ const game = () => {
     });
     asteroidButton.addEventListener("click", () => {
         clearInterval(normalTime);
-        asteroid(emoji);
+        asteroid();
     });
 };
 
