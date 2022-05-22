@@ -30,7 +30,7 @@ export const verifyNeighbours = (array) => {
         for (let j = 0; j < array[i].length; j++) {
             let vecinosVivos = 0;
 
-            // nueva funcion aqui
+            // verify how many neighbours are alive
             vecinosVivos = verify(array, i, j, vecinosVivos);
             // chage state of cell
             changeCellState(array, newArray, i, j, vecinosVivos)
@@ -43,57 +43,51 @@ export const verifyNeighbours = (array) => {
 };
 
 const verify = (array, i, j, vecinosVivos) => {
+    if (i > 0) {
     //  arriba izquierda
-    if (i > 0 && j - 1 >= 0) {
-        if (array[i - 1][j - 1] === 1) {
+        if (array[i - 1][j - 1] === 1 && j - 1 >= 0) {
             vecinosVivos++;
         }
-    }
 
     //  arriba
-    if (i > 0) {
         if (array[i - 1][j] === 1) {
             vecinosVivos++;
         }
-    }
 
     //  arriba derecha
-    if (i > 0 && j + 1 < array.length) {
-        if (array[i - 1][j + 1] === 1) {
+        if (array[i - 1][j + 1] === 1 && j + 1 < array.length) {
             vecinosVivos++;
         }
     }
 
-    // anterior --------------
+    // anterior 
     if (array[i][j - 1] === 1) {
         vecinosVivos++;
     }
 
-    // siguiente -----------------
+    // siguiente 
     if (array[i][j + 1] === 1) {
         vecinosVivos++;
     }
 
+    if (i < array.length - 1) {
+
     //  debajo izquierda
-    if (i < array.length - 1 && j - 1 >= 0) {
-        if (array[i + 1][j - 1] === 1) {
+        if (array[i + 1][j - 1] === 1 && j - 1 >= 0) {
             vecinosVivos++;
         }
-    }
 
     //  debajo
-    if (i < array.length - 1) {
         if (array[i + 1][j] === 1) {
             vecinosVivos++;
         }
-    }
 
     //  debajo derecha
-    if (i < array.length - 1 && j < array.length) {
-        if (array[i + 1][j + 1] === 1) {
+        if (array[i + 1][j + 1] === 1 && j < array.length) {
             vecinosVivos++;
         }
     }
+
     return vecinosVivos;
 }
 
