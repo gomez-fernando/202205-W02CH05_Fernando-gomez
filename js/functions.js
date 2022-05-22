@@ -50,7 +50,7 @@ export const asteroidMode = (array, ctx) => {
             // verify how many neighbours are alive
             vecinosVivos = verify(array, i, j, vecinosVivos);
             // chage state of cell
-            changeCellStateAsteroidMode(array, newArray, i, j, vecinosVivos)
+            changeCellStateAsteroidMode(array, newArray, i, j)
             
             drawCell(array[i][j], i, j, ctx);
         }
