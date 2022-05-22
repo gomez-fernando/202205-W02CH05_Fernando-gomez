@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
 }
+
 body{
     display: flex;
     min-height: 100vh;
@@ -11,6 +12,20 @@ body{
     background-attachment: fixed;
     background-position: center; 
     background-size: cover;
+    #emoji{
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+}
+.d-initial{
+    display: initial;
+}
+.d-none{
+    display: none;
 }
 
 .buttons-area, .stats-area{

@@ -20,6 +20,8 @@ export const randomArray = () => {
 }
 
 export const verifyNeighbours = (array, ctx) => {
+    emoji.classList.remove("d-initial");
+    emoji.classList.add("d-none");
     
     let newArray =  [...array].map((row) => [...row]);
     for (let i = 0; i < array.length; i++) {
@@ -34,6 +36,37 @@ export const verifyNeighbours = (array, ctx) => {
             drawCell(array[i][j], i, j, ctx);
         }
     }
+
+    return newArray;
+};
+
+export const asteroidMode = (array, ctx) => {
+    
+    let newArray =  [...array].map((row) => [...row]);
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array[i].length; j++) {
+            let vecinosVivos = 0;
+
+            // verify how many neighbours are alive
+            vecinosVivos = verify(array, i, j, vecinosVivos);
+            // chage state of cell
+            changeCellStateAsteroidMode(array, newArray, i, j, vecinosVivos)
+            
+            drawCell(array[i][j], i, j, ctx);
+        }
+    }
+
+    setTimeout(() => {
+        for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < array[i].length; j++) {
+                drawCellAsteroideMode(array[i][j], i, j, ctx);
+            }
+        }
+        setTimeout(() => {
+            emoji.classList.remove("d-none");
+            emoji.classList.add("d-initial");
+        }, 2500);
+    }, 2500);
 
     return newArray;
 };
@@ -103,6 +136,10 @@ export const changeCellState = (array, newArray, i, j, vecinosVivos) =>{
     }
     return newArray[i][j]
 }
+export const changeCellStateAsteroidMode = (array, newArray, i, j, vecinosVivos) =>{
+    array[i][j] === 1;
+    return newArray[i][j]
+}
 
 const drawCell = (cell, i, j, ctx) => {
     let color = '';
@@ -114,6 +151,11 @@ const drawCell = (cell, i, j, ctx) => {
     }
 
     ctx.fillStyle = color;
+    ctx.fillRect(i * tileWidth, j * tileHeight, tileWidth, tileHeight);
+}
+
+const drawCellAsteroideMode = (cell, i, j, ctx) => {
+    ctx.fillStyle = 'black';
     ctx.fillRect(i * tileWidth, j * tileHeight, tileWidth, tileHeight);
 }
 
