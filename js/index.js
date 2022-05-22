@@ -1,6 +1,4 @@
-import { verifyNeighbours } from "./functions.js";
-import { randomArray } from "./functions.js";
-import { dropCanvas } from "./functions.js";
+import { verifyNeighbours, randomArray, dropCanvas } from "./functions.js";
 
 const canvas = document.querySelector("#canvas");
 const canvasWidth = 800;
@@ -23,7 +21,6 @@ const game = () => {
         console.log(array);
 
         reloadButton.addEventListener("click", () => {
-            // array = [];
             clearInterval(normalTime);
             game();
         });
