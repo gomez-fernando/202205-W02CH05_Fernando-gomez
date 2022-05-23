@@ -19,7 +19,7 @@ export const randomArray = () => {
     return array;
 }
 
-export const verifyNeighbours = (array, ctx) => {
+export const verifyNeighbours = (array, ctx, emoji) => {
     emoji.classList.remove("d-initial");
     emoji.classList.add("d-none");
     
@@ -40,7 +40,7 @@ export const verifyNeighbours = (array, ctx) => {
     return newArray;
 };
 
-export const asteroidMode = (array, ctx) => {
+export const asteroidMode = (array, ctx, emoji) => {
     
     let newArray =  [...array].map((row) => [...row]);
     for (let i = 0; i < array.length; i++) {
