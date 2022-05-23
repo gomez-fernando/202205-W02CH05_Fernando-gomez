@@ -25,7 +25,7 @@
     "sass": "^1.52.1"
   },
     "prettier":{
-        "singleQuote": "true"
+        "singleQuote": true
     },
   "babel": {
     "env": {
