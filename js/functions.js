@@ -9,7 +9,7 @@ let tileWidth = canvasWidth / columns;
 let tileHeight = canvasHeight / rows;
 
 export const randomArray = () => {
-    let array = [...Array(400)].map(_x => Array(400).fill(1));
+    let array = [...Array(400)].map(() => Array(400).fill(1));
 
     for (let i = 0; i < array.length; i++){
         for (let j = 0; j < array.length; j++){
