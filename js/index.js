@@ -20,7 +20,7 @@ const game = () => {
     dropCanvas(ctx, canvas);
 
     normalTime = setInterval(() => {
-        array = verifyNeighbours(array, ctx);
+        array = verifyNeighbours(array, ctx, emoji);
 
     }, 10);
 
@@ -46,7 +46,7 @@ const asteroid = () => {
     dropCanvas(ctx, canvas);
 
     normalTime = setInterval(() => {
-        array = asteroidMode(array, ctx);
+        array = asteroidMode(array, ctx, emoji);
         clearInterval(normalTime);
     }, 10);
     
